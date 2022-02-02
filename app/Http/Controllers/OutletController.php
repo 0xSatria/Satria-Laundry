@@ -15,7 +15,7 @@ class OutletController extends Controller
      */
     public function index()
     {
-        //
+        return view("outlet/index");
     }
 
     /**
@@ -36,7 +36,16 @@ class OutletController extends Controller
      */
     public function store(StoreoutletRequest $request)
     {
-        //
+        // Validasi
+        $validated = $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'tlp' => 'required'
+        ]);
+
+        $input = outlet::create($validated);
+
+        if ($input) return redirect('outlet')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
