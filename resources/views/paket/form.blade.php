@@ -8,21 +8,29 @@
               </button>
           </div>
           <div class="modal-body">
-        <form method="POST" action="outlet">
+        <form method="POST" action="paket">
               @csrf
               <div id="method"></div>
                 <div class="card-body">
                   <div class="form-group">
                     <div class="form-group">
-                        <label for="nama">Nama</label>
-                        <input type="text" class="form-control " id="nama" placeholder="Nama" name="nama">
+                        <label for="id_outlet">Id Outlet</label>
+                        <input type="text" class="form-control " id="id_outlet" placeholder="Id Outlet" name="id_outlet">
                       </div>
                       <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <input type="text" class="form-control " id="alamat" placeholder="Alamat" name="alamat">
+                        <label for="jenis">Jenis</label>
+                        <select id="jenis" name="jenis" required="required" class="form-control" >
+                          <option>kiloan</option>
+                          <option>selimut</option>
+                          <option>bed cover</option>
+                          <option>kaos</option>
+                          <option>kain</option>
+                  </select>
                       </div>
-                    <label for="tlp">No Telepon</label>
-                    <input type="text" class="form-control " id="tlp" placeholder="No Telepon" name="tlp">
+                    <label for="nama_paket">Nama Paket</label>
+                    <input type="text" class="form-control " id="nama_paket" placeholder="Nama Paket" name="nama_paket">
+                    <label for="harga">Harga</label>
+                    <input type="text" class="form-control " id="harga" placeholder="Harga" name="harga">
                   </div>
                 </div>
               </div>

@@ -15,7 +15,9 @@ class PaketController extends Controller
      */
     public function index()
     {
-        //
+        return view('paket/index', [
+            'paket' => paket::all()
+        ]);
     }
 
     /**
@@ -36,7 +38,17 @@ class PaketController extends Controller
      */
     public function store(StorepaketRequest $request)
     {
-        //
+        // Validasi
+        $validated = $request->validate([
+            'id_outlet' => 'required',
+            'jenis' => 'required',
+            'nama_paket' => 'required',
+            'harga' => 'required'
+        ]);
+
+        $input = paket::create($validated);
+
+        if ($input) return redirect('#')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
