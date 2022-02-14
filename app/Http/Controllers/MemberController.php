@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\member;
+use Illuminate\Http\request;
 use App\Http\Requests\StorememberRequest;
 use App\Http\Requests\UpdatememberRequest;
 
@@ -15,7 +16,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        return view('member/index');
+        $data['member'] = member::all();
+        return view('member/index', ['member' => member::all()]);
     }
 
     /**
@@ -78,9 +80,15 @@ class MemberController extends Controller
      * @param  \App\Models\member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatememberRequest $request, member $member)
+    public function update(UpdatememberRequest $request, member $member, $id)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'tlp' => 'required',
+        ]);
+        $update = member::find($id)->update($validated);
+        if ($update) return redirect('outlet')->with('success', 'Data berhasil DI Upadate');
     }
 
     /**
@@ -89,8 +97,9 @@ class MemberController extends Controller
      * @param  \App\Models\member  $member
      * @return \Illuminate\Http\Response
      */
-    public function destroy(member $member)
+    public function destroy($id)
     {
-        //
+        member::find($id)->delete();
+        return redirect('member')->with('success', 'Outlet dihapus');
     }
 }

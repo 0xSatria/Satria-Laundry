@@ -1,9 +1,9 @@
-    {{-- <footer class="main-footer">
+    <footer class="main-footer">
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 3.2.0-rc
       </div>
       <strong>Copyright &copy; 2014-2021 Muhammad Satria Valentino.</strong> All rights reserved.
-    </footer> --}}
+    </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -21,5 +21,6 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+@stack('script')
 </body>
 </html>

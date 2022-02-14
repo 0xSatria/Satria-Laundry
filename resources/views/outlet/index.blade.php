@@ -51,39 +51,42 @@
 @include('outlet/form')
 @push('script')
 <script>
+    console.log('javas')
     $(function(){
+        console.log('function')
         //data Table
-        $('tbl-barang').DataTable()
+    //     $('tbl-barang').DataTable()
 
-        //menghapus alert
-        $("#succes-alert").fadeTo(2000, 500).slideUp(500, function(){
-            $("#succes-alert").slideUp(500);
-        });
-        $("#error-alert").fadeTo(2000, 500).slideUp(500, function(){
-            $("#succes-alert").slideUp(500);
-        });
+    //     //menghapus alert
+    //     $("#succes-alert").fadeTo(2000, 500).slideUp(500, function(){
+    //         $("#succes-alert").slideUp(500);
+    //     });
+    //     $("#error-alert").fadeTo(2000, 500).slideUp(500, function(){
+    //         $("#succes-alert").slideUp(500);
+    //     });
 
-        delete barang
-         $('.delete-barang').click(function(e){
-             e.prevenDefault()
-             let data = $(this).closest('tr').find('td:eq(1)').text()
-             swal({
-                 title ="Apakah kamu yakin?",
-                 text ="Data"+data+"akan dihapus?",
-                 icon ="warning",
-                 buttons = true,
-                 dangermode = true,
-             })
-             .then((req) => {
-                 if(req) $(e.target).closest('form').submit()
-                 else swal.close()
-             })
-         })
+    //     delete barang
+    //      $('.delete-barang').click(function(e){
+    //          e.prevenDefault()
+    //          let data = $(this).closest('tr').find('td:eq(1)').text()
+    //          swal({
+    //              title ="Apakah kamu yakin?",
+    //              text ="Data"+data+"akan dihapus?",
+    //              icon ="warning",
+    //              buttons = true,
+    //              dangermode = true,
+    //          })
+    //          .then((req) => {
+    //              if(req) $(e.target).closest('form').submit()
+    //              else swal.close()
+    //          })
+    //      })
     
          
-         $('#formInputModal').on('show.bs.modal', function(event){
+        $('#formInputModal').on('show.bs.modal', function(event){
         let button = $(event.relatedTarget)
         console.log(button)
+        console.log('modaaaal')
         let id= button.data('id')
         let nama= button.data('nama')
         let alamat= button.data('alamat')
@@ -91,7 +94,7 @@
         let mode= button.data('mode')
         let modal= $(this)
         if(mode === "edit"){
-    modal.find('.modal-title').text('Edit Data Outlet Mu')
+            modal.find('.modal-title').text('Edit Data Outlet')
             modal.find('.modal-body #nama').val(nama)
             modal.find('.modal-body #alamat').val(alamat)
             modal.find('.modal-body #tlp').val(tlp)
@@ -99,7 +102,7 @@
             modal.find('.modal-body #method').html('{{ method_field('patch') }}')
             modal.find('.modal-body form').attr('action', 'outlet/'+id)
         }else{
-            modal.find('.modal-title').text('Input Data Outlet Mu')
+            modal.find('.modal-title').text('Input Data Outlet')
             modal.find('.modal-body #nama').val('')
             modal.find('.modal-body #alamat').val('')
             modal.find('.modal-body #tlp').val('')

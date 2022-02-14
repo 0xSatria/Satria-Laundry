@@ -16,6 +16,14 @@
             <td class="text-center">{{ $o->alamat }}</td>
             <td class="text-center">{{ $o->tlp }}</td>
             <td class="text-center">
+                <button type="button" class="btn edit-class" data-toggle="modal" data-target="#formInputModal" data-toggle="modal"
+                    data-mode="edit"
+                    data-id="{{ $o->id }}"
+                    data-nama="{{ $o->nama }}"
+                    data-alamat="{{ $o->alamat }}"
+                    data-tlp="{{ $o->tlp }}" >
+                    <i class="fas fa-edit"></i>
+                </button>
                 @include('outlet.update')
                 <form method="POST" action="{{ route('outlet.destroy', $o->id) }}" style="display:inline">
                     {{ csrf_field() }}

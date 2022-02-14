@@ -13,7 +13,7 @@
         Tambah Member
     </button>
     <div>
-        {{-- @include('member/list-all') --}}
+        @include('member/list-all')
     </div>
       </div>
       <div class="card-footer">

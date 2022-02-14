@@ -1,13 +1,5 @@
   {{-- button --}}
-  <button type="button" class="btn edit-outlet btn-success" data-toggle="modal" data-target="#edit{{ $o->id }}                     data-toggle="modal"
-    data-target="#formInputModal"
-    data-mode="edit"
-    data-id="{{ $o->id }}"
-    data-nama="{{ $o->nama }}"
-    data-alamat="{{ $o->alamat }}"
-    data-tlp="{{ $o->tlp }}"  ">
-    <i class="fas fa-edit"></i>
-</button>
+
 
 <div class="modal fade" id="edit{{ $o->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -19,9 +11,9 @@
       </button>
     </div>
     <div class="modal-body">
-      <form method="post" action="{{ url('outlet/'.$o->id) }}">
+      <form method="post" action="outlet">
         @csrf
-        @method('PUT')
+        {{ method_field('patch') }}
         <div id="method"></div>
         <div class="card-body">
           <div class="form-group">

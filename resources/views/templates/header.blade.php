@@ -148,5 +148,5 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     </section>
-  @yield('content')
+    @yield('content')
   @include('templates/footer')

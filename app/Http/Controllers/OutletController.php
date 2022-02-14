@@ -68,7 +68,7 @@ class OutletController extends Controller
      * @param  \App\Models\outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function edit(outlet $outlet)
+    public function edit(outlet $outlet, $id)
     {
         //
     }
@@ -82,8 +82,13 @@ class OutletController extends Controller
      */
     public function update(Request $request, $id)
     {
-        outlet::find($id)->update($request->all());
-        return redirect('outlet')->with('success', 'Data Produk Berhasil Diubah!');  //
+        $validated = $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'tlp' => 'required',
+        ]);
+        $update = outlet::find($id)->update($validated);
+        if ($update) return redirect('outlet')->with('success', 'Data berhasil DI Upadate');
     }
 
     /**
