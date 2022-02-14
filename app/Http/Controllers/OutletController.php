@@ -73,7 +73,7 @@ class OutletController extends Controller
         $validated = $request->validate([
             'nama' => 'required',
             'alamat' => 'required',
-            'telepon' => 'required',
+            'tlp' => 'required',
         ]);
         // dd($validated);
 
@@ -92,12 +92,12 @@ class OutletController extends Controller
      * @param  \App\Models\outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Outlet $b, $id)
+    public function update(Request $request, outlet $b, $id)
     {
         $model = outlet::find($id);
         $model->nama = $request->nama;
         $model->alamat = $request->alamat;
-        $model->telepon = $request->telepon;
+        $model->tlp = $request->tlp;
         $model->save();
 
         return redirect('outlet');
@@ -111,7 +111,7 @@ class OutletController extends Controller
      */
     public function destroy(outlet $outlet)
     {
-        Outlet::find($id)->delete();
+        outlet::find($id)->delete();
         return redirect('outlet')->with('success', 'Outlet dihapus');
     }
 }

@@ -33,8 +33,8 @@
 
           <div class="card-body">
             <div class="form-group">
-              <label for="telepon"></label>
-              <input type="text" class="form-control col-sm-9" id="telepon" value="{{ $o->telepon }}" name="telepon">
+              <label for="tlp"></label>
+              <input type="text" class="form-control col-sm-9" id="tlp" value="{{ $o->tlp }}" name="tlp">
             </div>
           </div>
     </div>
