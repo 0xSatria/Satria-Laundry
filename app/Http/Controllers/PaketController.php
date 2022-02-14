@@ -15,9 +15,8 @@ class PaketController extends Controller
      */
     public function index()
     {
-        return view('paket/index', [
-            'paket' => paket::all()
-        ]);
+        $data['paket'] = Paket::all();
+        return view('paket/index', ['paket' => Paket::all()]);
     }
 
     /**
