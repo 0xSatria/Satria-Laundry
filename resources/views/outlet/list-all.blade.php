@@ -20,7 +20,7 @@
                 <form method="POST" action="{{ route('outlet.destroy', $o->id) }}" style="display:inline">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <button type="submit" class="btn delete-outlet"><i class="fas fa-trash" style="color:red"></i></button> &nbsp;
+                    <button type="submit" class="btn delete-outlet btn-danger"><i class="fas fa-trash-alt" style="color:reda"></i></button> &nbsp;
                 </form>
             </td>
         </tr>

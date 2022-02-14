@@ -70,19 +70,7 @@ class OutletController extends Controller
      */
     public function edit(outlet $outlet)
     {
-        $validated = $request->validate([
-            'nama' => 'required',
-            'alamat' => 'required',
-            'tlp' => 'required',
-        ]);
-        // dd($validated);
-
-        $update = $outlet->find($id)->update($request->all());
-
-        // $input = Member::where('id', $paket->id)
-        //         ->update($validated);
-
-        if ($update) return redirect('outlet')->with('success', 'Data berhasil DI Upadate');
+        //
     }
 
     /**
@@ -92,15 +80,10 @@ class OutletController extends Controller
      * @param  \App\Models\outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, outlet $b, $id)
+    public function update(Request $request, $id)
     {
-        $model = outlet::find($id);
-        $model->nama = $request->nama;
-        $model->alamat = $request->alamat;
-        $model->tlp = $request->tlp;
-        $model->save();
-
-        return redirect('outlet');
+        outlet::find($id)->update($request->all());
+        return redirect('outlet')->with('success', 'Data Produk Berhasil Diubah!');  //
     }
 
     /**
@@ -109,7 +92,7 @@ class OutletController extends Controller
      * @param  \App\Models\outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(outlet $outlet)
+    public function destroy($id)
     {
         outlet::find($id)->delete();
         return redirect('outlet')->with('success', 'Outlet dihapus');

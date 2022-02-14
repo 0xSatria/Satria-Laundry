@@ -1,5 +1,11 @@
   {{-- button --}}
-  <button type="button" class="btn btn-" data-toggle="modal"data-target="#edit{{ $o->id }}">
+  <button type="button" class="btn edit-outlet btn-success" data-toggle="modal" data-target="#edit{{ $o->id }}                     data-toggle="modal"
+    data-target="#formInputModal"
+    data-mode="edit"
+    data-id="{{ $o->id }}"
+    data-nama="{{ $o->nama }}"
+    data-alamat="{{ $o->alamat }}"
+    data-tlp="{{ $o->tlp }}"  ">
     <i class="fas fa-edit"></i>
 </button>
 
