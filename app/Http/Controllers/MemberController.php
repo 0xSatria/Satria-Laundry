@@ -15,7 +15,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        return view('member/index');
     }
 
     /**
@@ -36,7 +36,17 @@ class MemberController extends Controller
      */
     public function store(StorememberRequest $request)
     {
-        //
+        // Validasi
+        $validated = $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'jenis_kelamin' => 'required',
+            'tlp' => 'required'
+        ]);
+
+        $input = member::create($validated);
+
+        if ($input) return redirect('#')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**

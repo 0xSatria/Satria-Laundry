@@ -8,7 +8,7 @@
               </button>
           </div>
           <div class="modal-body">
-        <form method="POST" action="outlet">
+        <form method="POST" action="member">
               @csrf
               <div id="method"></div>
                 <div class="card-body">
@@ -20,6 +20,13 @@
                       <div class="form-group">
                         <label for="alamat">Alamat</label>
                         <input type="text" class="form-control " id="alamat" placeholder="Alamat" name="alamat">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputText">Jenis Kelamin</label>
+                        <select id="jenis_kelamin" name="jenis_kelamin" required="required" class="form-control" >
+                              <option value="L">Laki-laki</option>
+                              <option value="P">Perempuan</option>
+                      </select>
                       </div>
                     <label for="tlp">No Telepon</label>
                     <input type="text" class="form-control " id="tlp" placeholder="No Telepon" name="tlp">

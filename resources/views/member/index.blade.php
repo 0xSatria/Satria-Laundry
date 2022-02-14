@@ -5,15 +5,15 @@
 <section class="content">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Outlet</h3>
+        <h3 class="card-title">Member</h3>
       </div>
       <div class="card-body">
         <button type="button" class="btn btn-primary" data-toggle="modal"
         data-target="#formInputModal">
-        Tambah Outlet
+        Tambah Member
     </button>
     <div>
-        @include('outlet/list-all')
+        {{-- @include('member/list-all') --}}
     </div>
       </div>
       <div class="card-footer">
@@ -48,7 +48,7 @@
 </div>
 <!-- /page content -->
 @endsection
-@include('outlet/form')
+@include('member/form')
 @push('script')
 <script>
 

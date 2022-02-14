@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\outlet;
+use Illuminate\Http\request;
 use App\Http\Requests\StoreoutletRequest;
 use App\Http\Requests\UpdateoutletRequest;
+
 
 class OutletController extends Controller
 {
@@ -15,7 +17,8 @@ class OutletController extends Controller
      */
     public function index()
     {
-        return view("outlet/index");
+        $data['outlet'] = Outlet::all();
+        return view('outlet/index', ['outlet' => Outlet::all()]);
     }
 
     /**
@@ -67,7 +70,19 @@ class OutletController extends Controller
      */
     public function edit(outlet $outlet)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
+        ]);
+        // dd($validated);
+
+        $update = $outlet->find($id)->update($request->all());
+
+        // $input = Member::where('id', $paket->id)
+        //         ->update($validated);
+
+        if ($update) return redirect('outlet')->with('success', 'Data berhasil DI Upadate');
     }
 
     /**
@@ -77,9 +92,15 @@ class OutletController extends Controller
      * @param  \App\Models\outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateoutletRequest $request, outlet $outlet)
+    public function update(Request $request, Outlet $b, $id)
     {
-        //
+        $model = outlet::find($id);
+        $model->nama = $request->nama;
+        $model->alamat = $request->alamat;
+        $model->telepon = $request->telepon;
+        $model->save();
+
+        return redirect('outlet');
     }
 
     /**
@@ -90,6 +111,7 @@ class OutletController extends Controller
      */
     public function destroy(outlet $outlet)
     {
-        //
+        Outlet::find($id)->delete();
+        return redirect('outlet')->with('success', 'Outlet dihapus');
     }
 }
