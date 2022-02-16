@@ -80,18 +80,19 @@ class PaketController extends Controller
      * @param  \App\Models\paket  $paket
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatepaketRequest $request, $id)
+    public function update(UpdatePaketRequest $request, $id)
     {
-        $model = Paket::find($id);
-        $model->id_outlet = $request->id_outlet;
-        $model->jenis = $request->jenis;
-        $model->nama_paket = $request->nama_paket;
-        $model->harga = $request->harga;
-        $model->save();
+        $rules = $request->validate([
+            'id_outlet' => 'required',
+            'jenis' => 'required',
+            'nama_paket' => 'required',
+            'harga' => 'required'
+        ]);
 
-        return redirect('paket')->with('success', 'Paket sudah diedit');
+        $update = Paket::find($id)->update($request->all());
+
+        if ($update) return redirect('paket')->with('success', 'Data Berhasil diupdate');
     }
-
     /**
      * Remove the specified resource from storage.
      *
