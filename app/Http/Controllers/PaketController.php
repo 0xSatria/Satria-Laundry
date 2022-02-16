@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\paket;
 use App\Http\Requests\StorepaketRequest;
 use App\Http\Requests\UpdatepaketRequest;
+use Illuminate\Http\Request;
 
 class PaketController extends Controller
 {
@@ -79,9 +80,16 @@ class PaketController extends Controller
      * @param  \App\Models\paket  $paket
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatepaketRequest $request, paket $paket)
+    public function update(UpdatepaketRequest $request, $id)
     {
-        //
+        $model = Paket::find($id);
+        $model->id_outlet = $request->id_outlet;
+        $model->jenis = $request->jenis;
+        $model->nama_paket = $request->nama_paket;
+        $model->harga = $request->harga;
+        $model->save();
+
+        return redirect('paket')->with('success', 'Paket sudah diedit');
     }
 
     /**
@@ -90,8 +98,9 @@ class PaketController extends Controller
      * @param  \App\Models\paket  $paket
      * @return \Illuminate\Http\Response
      */
-    public function destroy(paket $paket)
+    public function destroy($id)
     {
-        //
+        Paket::find($id)->delete();
+        return redirect('paket')->with('success', 'Paket dihapus');
     }
 }

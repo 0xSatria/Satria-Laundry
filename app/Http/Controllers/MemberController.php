@@ -80,16 +80,20 @@ class MemberController extends Controller
      * @param  \App\Models\member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatememberRequest $request, member $member, $id)
+    public function update(UpdateMemberRequest $request, $id)
     {
-        $validated = $request->validate([
+        $rules = $request->validate([
             'nama' => 'required',
             'alamat' => 'required',
-            'tlp' => 'required',
+            'jenis_kelamin' => 'required',
+            'tlp' => 'required'
         ]);
-        $update = member::find($id)->update($validated);
-        if ($update) return redirect('outlet')->with('success', 'Data berhasil DI Upadate');
+
+        $update = Member::find($id)->update($request->all());
+
+        if ($update) return redirect('member')->with('success', 'Data Berhasil diupdate');
     }
+
 
     /**
      * Remove the specified resource from storage.

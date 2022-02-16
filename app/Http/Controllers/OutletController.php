@@ -68,7 +68,7 @@ class OutletController extends Controller
      * @param  \App\Models\outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function edit(outlet $outlet, $id)
+    public function edit(outlet $outlet)
     {
         //
     }
@@ -80,16 +80,19 @@ class OutletController extends Controller
      * @param  \App\Models\outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateOutletRequest $request, $id)
     {
-        $validated = $request->validate([
+        $rules = $request->validate([
             'nama' => 'required',
             'alamat' => 'required',
-            'tlp' => 'required',
+            'tlp' => 'required'
         ]);
-        $update = outlet::find($id)->update($validated);
-        if ($update) return redirect('outlet')->with('success', 'Data berhasil DI Upadate');
+
+        $update = Outlet::find($id)->update($request->all());
+
+        if ($update) return redirect('outlet')->with('success', 'Data Berhasil diupdate');
     }
+
 
     /**
      * Remove the specified resource from storage.
