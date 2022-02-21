@@ -17,7 +17,7 @@ class CreateMemberTable extends Migration
             $table->id('id');
             $table->string('nama', 100);
             $table->text('alamat');
-            $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->enum('jenis_kelamin', ['P', 'L']);
             $table->string('tlp', 15);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
