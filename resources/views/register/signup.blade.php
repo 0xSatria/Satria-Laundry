@@ -27,8 +27,16 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form action="{{ route('auth.login') }}" method="post">
+                <form action="{{ route('register.store') }}" method="post">
                     @csrf
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="nama" placeholder="Nama">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" placeholder="Email">
                         <div class="input-group-append">
@@ -36,6 +44,30 @@
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="username" placeholder="Username">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class=" form-control" name="id_outlet" id="">
+                            <option disabled selected>---------- PILIH ID OUTLET ----------</option>
+                            @foreach ($id_outlet as $onjo)
+                                <option value="{{ $onjo->id }}">{{ $onjo->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class=" form-control" name="role" id="">
+                            <option disabled selected>---------- PILIH ID OUTLET ----------</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role }}">{{ $role }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" name="password" placeholder="Password">
@@ -51,14 +83,6 @@
                         </div>
                     @enderror
                     <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
                         <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -66,23 +90,11 @@
                         <!-- /.col -->
                     </div>
                 </form>
-
-                <div class="social-auth-links text-center mb-3">
-                    <p>- OR -</p>
-                    <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                    </a>
-                    <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                    </a>
-                </div>
-                <!-- /.social-auth-links -->
-
-                <p class="mb-1">
+                <p class="my-3">
                     <a href="forgot-password.html">I forgot my password</a>
                 </p>
-                <p class="mb-0">
-                    <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+                <p class="my-3">
+                    <a href="register.html" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.login-card-body -->

@@ -1,19 +1,19 @@
 @extends('templates.header')
 
 @section('content')
-        <!-- Main content -->
-        <section class="content">
-          <div class="card">
+    <!-- Main content -->
+    <section class="content">
+        <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Title</h3>
+                <h3 class="card-title">Title</h3>
             </div>
             <div class="card-body">
-              Start creating your amazing application!
+                <h2>Selamat Datang {{ Auth::user()->nama }}</h2>
             </div>
             <div class="card-footer">
-              Footer
+                Footer
             </div>
-          </div>
-        </section>
-      </div>
+        </div>
+    </section>
+    </div>
 @endsection

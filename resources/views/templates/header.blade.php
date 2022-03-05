@@ -10,9 +10,9 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset(‘assets’) }}/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset(‘assets’) }}/dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -27,7 +27,14 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../#" class="nav-link">Home</a>
+                    <a href="home" class="nav-link ">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <form action="/logout" method="post" class="">
+                        @csrf
+                        {{-- <i class="nav-icon fas fa-ellipsis-h"></i> --}}
+                        <button type="submit" class=" nav-link border-0">Logout</button>
+                    </form>
                 </li>
             </ul>
 
@@ -59,12 +66,14 @@
         </nav>
         <!-- /.navbar -->
 
+
+
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="../../index3.html" class="brand-link">
-                <img src="../../dist/img/b.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: .8">
+            <a href="{{ asset(‘assets’) }}/index3.html" class="brand-link">
+                <img src="{{ asset(‘assets’) }}/dist/img/b.png" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">YAKUZA 3</span>
             </a>
 
@@ -73,7 +82,8 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../../dist/img/a.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset(‘assets’) }}/dist/img/a.png" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Arya Satria</a>
@@ -94,57 +104,15 @@
                 </div>
 
                 <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ 'outlet' }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Outlet</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ 'paket' }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Paket</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ 'member' }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Member</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ 'transaksi' }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Transaksi
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-header">USER</li>
-                        <li class="nav-item">
-                            <a href="{{ 'login' }}" class="nav-link">
-                                <i class="nav-icon fas fa-ellipsis-h"></i>
-                                <p>Login</p>
-                            </a>
-                        </li>
-
-                    </ul>
+                <div class="sidebar">
+                    @if (auth()->user()->role == 'admin')
+                        @include('templates.sidebar-admin')
+                    @elseif(auth()->user()->role == 'kasir')
+                        @include('templates.sidebar-kasir')
+                    @elseif(auth()->user()->role == 'owner')
+                        @include('templates.sidebar-owner')
+                    @endif
+                </div>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>

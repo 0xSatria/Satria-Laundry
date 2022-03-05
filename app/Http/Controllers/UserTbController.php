@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\user_tb;
 use App\Http\Requests\Storeuser_tbRequest;
 use App\Http\Requests\Updateuser_tbRequest;
+use Illuminate\Http\Request;
 
 class UserTbController extends Controller
 {
@@ -15,7 +16,10 @@ class UserTbController extends Controller
      */
     public function index()
     {
-        //
+        $data['user'] = User_tb::all();
+        return view('user/index', $data, [
+            'title' => 'User'
+        ]);
     }
 
     /**
@@ -36,7 +40,17 @@ class UserTbController extends Controller
      */
     public function store(Storeuser_tbRequest $request)
     {
-        //
+        $validated = $request->validate([
+            'nama' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'id_outlet' => 'required',
+            'role' => 'required',
+        ]);
+
+        $input = user_tb::create($validated);
+
+        if ($input) return redirect('user')->with('success', 'Data berhasil diiinput');
     }
 
     /**
@@ -68,9 +82,17 @@ class UserTbController extends Controller
      * @param  \App\Models\user_tb  $user_tb
      * @return \Illuminate\Http\Response
      */
-    public function update(Updateuser_tbRequest $request, user_tb $user_tb)
+    public function update(Updateuser_tbRequest $request, user_tb $user_tb, $id)
     {
-        //
+        $model = User_tb::find($id);
+        $model->nama = $request->nama;
+        $model->username = $request->username;
+        $model->password = $request->password;
+        $model->id_outlet = $request->id_outlet;
+        $model->role = $request->role;
+        $model->save();
+
+        return redirect('user');
     }
 
     /**
@@ -79,8 +101,9 @@ class UserTbController extends Controller
      * @param  \App\Models\user_tb  $user_tb
      * @return \Illuminate\Http\Response
      */
-    public function destroy(user_tb $user_tb)
+    public function destroy(user_tb $user_tb, $id)
     {
-        //
+        User_tb::find($id)->delete();
+        return redirect('user')->with('success', 'Data User dihapus');
     }
 }

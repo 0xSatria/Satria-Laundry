@@ -27,8 +27,8 @@
                                 <label for="exampleInputText">Jenis Kelamin</label>
                                 <select id="jenis_kelamin" name="jenis_kelamin" required="required"
                                     class="form-control">
-                                    <option value="Pria">Pria</option>
-                                    <option value="Wanita">Wanita</option>
+                                    <option value="P">Pria</option>
+                                    <option value="L">Wanita</option>
                                 </select>
                             </div>
                             <label for="tlp">No Telepon</label>

@@ -4,7 +4,7 @@
             <th class="text-center">No.</th>
             <th class="text-center">Nama</th>
             <th class="text-center">Alamat</th>
-            <th class="text-center">Gender</th>
+            <th class="text-center">Jenis Kelamin</th>
             <th class="text-center">Telepon</th>
             <th class="text-center">Action</th>
         </tr>
