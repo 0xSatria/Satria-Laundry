@@ -10,9 +10,9 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset(‘assets’) }}/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset(‘assets’) }}/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -71,8 +71,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{ asset(‘assets’) }}/index3.html" class="brand-link">
-                <img src="{{ asset(‘assets’) }}/dist/img/b.png" alt="AdminLTE Logo"
+            <a href="{{ asset('assets') }}/index3.html" class="brand-link">
+                <img src="{{ asset('assets') }}/dist/img/b.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">YAKUZA 3</span>
             </a>
@@ -82,7 +82,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset(‘assets’) }}/dist/img/a.png" class="img-circle elevation-2"
+                        <img src="{{ asset('assets') }}/dist/img/a.png" class="img-circle elevation-2"
                             alt="User Image">
                     </div>
                     <div class="info">

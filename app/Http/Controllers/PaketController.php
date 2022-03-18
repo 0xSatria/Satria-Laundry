@@ -6,6 +6,10 @@ use App\Models\paket;
 use App\Http\Requests\StorepaketRequest;
 use App\Http\Requests\UpdatepaketRequest;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PaketExport;
+use App\Imports\PaketImport;
+
 
 class PaketController extends Controller
 {
@@ -101,7 +105,41 @@ class PaketController extends Controller
      */
     public function destroy($id)
     {
-        Paket::find($id)->delete();
+        paket::find($id)->delete();
         return redirect('paket')->with('success', 'Paket dihapus');
+    }
+
+    // Export Function to Xls/Excel
+    public function exportData()
+    {
+        $date = date('Y-m-d');
+        return Excel::download(new PaketExport, $date . '_paket.xlsx');
+    }
+
+    // Import Xls
+    public function importData()
+    {
+        // // validasi
+        // $this->validate($request, [
+        //     'file' => 'required|mimes:csv,xls,xlsx'
+        // ]);
+
+        // // menangkap file excel
+        // $file = $request->file('file');
+
+        // // membuat nama file unik
+        // $nama_file = rand() . $file->getClientOriginalName();
+
+        // // upload ke folder file_member di dalam folder public
+        // $file->move('file_member', $nama_file);
+
+        // import data
+        Excel::import(new PaketImport, request()->file('import'));
+
+        // notifikasi dengan session
+        // Session::flash('sukses','Data Siswa Berhasil Diimport!');
+
+        // alihkan halaman kembali
+        return redirect(request()->segment(1) . '/paket')->with('success', 'Import berhasil!');
     }
 }

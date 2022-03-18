@@ -5,11 +5,11 @@
     <section class="content">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Paket</h3>
+                <h3 class="card-title">Inventory</h3>
             </div>
-            <div class="card-body ">
+            <div class="card-body">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formInputModal">
-                    <i class="fa fa-plus"></i> Tambah Paket
+                    <i class="fa fa-plus"></i> Tambah Inventory
                 </button>
 
                 {{-- Export Excel --}}
@@ -46,14 +46,16 @@
                     @endif
                 </div>
                 <div>
-                    @include('paket/list-all')
+                    @include('inventory/list-all')
                 </div>
             </div>
         </div>
     </section>
+
+
     <!-- /page content -->
 @endsection
-@include('paket/form')
+@include('inventory/form')
 @push('script')
     <script>
 

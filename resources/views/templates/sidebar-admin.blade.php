@@ -30,6 +30,18 @@ with font-awesome or any other icon font library -->
                         <p>Member</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ 'inventory' }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Inventory</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ 'penjemputan' }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Penjemputan Laundry</p>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="nav-item">
@@ -40,11 +52,30 @@ with font-awesome or any other icon font library -->
                 </p>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a href="{{ 'gaji' }}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Simulasi Gaji Karyawan
+                </p>
+            </a>
+
+        </li>
+
+
+
         <li class="nav-header">USER</li>
         <li class="nav-item">
             <a href="{{ 'login' }}" class="nav-link">
                 <i class="nav-icon fas fa-ellipsis-h"></i>
                 <p>Login</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ 'data_karyawan' }}" class="nav-link">
+                <i class="far fa-address-book nav-icon"></i>
+                <p>Simulasi Data Karyawan</p>
             </a>
         </li>
 

@@ -17,4 +17,9 @@ class member extends Model
         'jenis_kelamin',
         'tlp'
     ];
+
+    public function penjemputan()
+    {
+        return $this->hasMany(Penjemputan::class, 'id_penjemputan');
+    }
 }

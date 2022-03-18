@@ -39,8 +39,8 @@
                             <label for="nama"></label>
                             <select name="jenis_kelamin" class="form-control col-sm-9" id="jenis_kelamin"
                                 placeholder="Jenis Kelamin" name="jenis_kelamin" value="{{ $m->jenis_kelamin }}">
-                                <option value="Pria">Perempuan</option>
-                                <option value="Wanita">Laki laki</option>
+                                <option value="L">Laki Laki</option>
+                                <option value="P">Perempuan</option>
                             </select>
                         </div>
                     </div>
