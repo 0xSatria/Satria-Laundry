@@ -15,8 +15,8 @@ class CreatePaketTable extends Migration
     {
         Schema::create('paket', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('id_outlet')->unsigned();
-            $table->enum('jenis', ['kiloan', 'selimut', 'bed_cover', 'kaos', 'kain']);
+            $table->foreignId('id_outlet');
+            $table->enum('jenis', ['kiloan', 'selimut', 'bed_cover', 'kaos', 'lain']);
             $table->string('nama_paket', 100);
             $table->integer('harga')->unsigned();
             $table->timestamp('created_at')->useCurrent();

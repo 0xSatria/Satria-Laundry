@@ -15,9 +15,10 @@ class CreateTransaksiTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('id_outlet')->unsigned();
+            $table->foreignId('id_outlet');
+            $table->foreignId('id_member');
+            $table->foreignId('id_user');
             $table->string('kode_invoice', 100);
-            $table->integer('id_member')->unsigned();
             $table->dateTime('tgl');
             $table->dateTime('batas_waktu');
             $table->dateTime('tgl_bayar');
@@ -26,7 +27,6 @@ class CreateTransaksiTable extends Migration
             $table->integer('pajak')->unsigned();
             $table->enum('status', ['baru', 'proses', 'selesai', 'diambil']);
             $table->enum('dibayar', ['dibayar', 'belum_dibayar']);
-            $table->integer('id_user')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

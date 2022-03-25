@@ -43,4 +43,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function outlet()
+    {
+        return $this->belongsTo(outlet::class, "id_outlet");
+    }
+
+
+    public function member()
+    {
+        return $this->belongsTo(member::class, "id_member");
+    }
 }

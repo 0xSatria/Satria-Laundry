@@ -34,35 +34,6 @@
                     </div>
                 </div>
 
-                <div class="card card-info">
-                    <form id="formBuku" class="form-horizontal">
-                        <div class="card-body">
-                            <div class="form-group row">
-                                <label for="petugas" class="col-sm-2 col-form-label">Petugas Penjemputan</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="petugas" name="petugas"
-                                        placeholder="Petugas Penjemputan">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="status" class="col-sm-2 col-form-label">Status</label>
-                                <div class="col-sm-10">
-                                    <select type="text" class="form-control" id="status" name="status"
-                                        placeholder="Harga Buku">
-                                        <option value="Tercatat">Tercatat</option>
-                                        <option value="Penjemputan">Penjemputan</option>
-                                        <option value="Selesai">Selesai</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <button id="btn-submit" type="submit" class="btn btn-info">Submit</button>
-                            <button id="btn-reset" type="reset" class="btn btn-danger">Reset</button>
-                        </div>
-                    </form>
-                </div>
 
                 <div style="margin-top:20px">
                     @if (session('success'))
@@ -179,6 +150,20 @@
             //          })
             //      })
 
+            $('#tbl-outlet').on('change', '.status', function() {
+                let status = $(this).closest('tr').find('.status').val()
+                let id = $(this).closest('tr').find('.id').val()
+                let data = {
+                    id: id,
+                    status: status,
+                    _token: "{{ csrf_token() }}"
+                };
+                $.post('{{ route('status') }}', data, function(msg) {
+                    alert('Status Penjemputan Berhasil Diubah !')
+                })
+                console.log(status)
+                console.log(data)
+            })
 
             $('#formInputModal').on('show.bs.modal', function(event) {
                 let button = $(event.relatedTarget)
@@ -232,6 +217,8 @@
                 console.log(data);
                 $('#tbl-outlet tbody').html(showData(data));
             });
+
+
         })
 
         // Search fn

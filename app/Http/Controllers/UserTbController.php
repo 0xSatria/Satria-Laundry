@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\user_tb;
 use App\Http\Requests\Storeuser_tbRequest;
 use App\Http\Requests\Updateuser_tbRequest;
+use App\Models\outlet;
 use Illuminate\Http\Request;
 
 class UserTbController extends Controller
@@ -17,6 +18,7 @@ class UserTbController extends Controller
     public function index()
     {
         $data['user'] = User_tb::all();
+        $data['outlet'] = outlet::all();
         return view('user/index', $data, [
             'title' => 'User'
         ]);
@@ -29,7 +31,10 @@ class UserTbController extends Controller
      */
     public function create()
     {
-        //
+        // $data['outlet'] = outlet::all();
+        // return view('user/form', $data, [
+        //     'title' => 'User'
+        // ]);
     }
 
     /**
@@ -41,7 +46,7 @@ class UserTbController extends Controller
     public function store(Storeuser_tbRequest $request)
     {
         $validated = $request->validate([
-            'nama' => 'required',
+            'name' => 'required',
             'username' => 'required',
             'password' => 'required',
             'id_outlet' => 'required',
@@ -85,7 +90,7 @@ class UserTbController extends Controller
     public function update(Updateuser_tbRequest $request, user_tb $user_tb, $id)
     {
         $model = User_tb::find($id);
-        $model->nama = $request->nama;
+        $model->name = $request->name;
         $model->username = $request->username;
         $model->password = $request->password;
         $model->id_outlet = $request->id_outlet;

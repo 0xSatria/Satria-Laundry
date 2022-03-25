@@ -16,4 +16,15 @@ class outlet extends Model
         'alamat',
         'tlp'
     ];
+
+
+    public function paket()
+    {
+        return $this->hasMany(Paket::class, 'id_outlet');
+    }
+
+    public function user()
+    {
+        return $this->hasMany(User::class, 'id_outlet');
+    }
 }

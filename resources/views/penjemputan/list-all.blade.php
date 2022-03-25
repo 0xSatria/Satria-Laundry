@@ -13,16 +13,21 @@
     <tbody>
         @foreach ($pemjemputan as $o)
             <tr>
-                <td class="text-center">{{ $i = isset($i) ? ++$i : ($i = 1) }}</td>
+                <td class="text-center">{{ $i = isset($i) ? ++$i : ($i = 1) }}
+                    <input type="text" hidden class="id" value="{{ $o->id }}">
+                </td>
                 <td class="text-center">{{ $o->member->nama }}</td>
                 <td class="text-center">{{ $o->member->alamat }}</td>
                 <td class="text-center">{{ $o->member->tlp }}</td>
                 <td class="text-center">{{ $o->petugas }}</td>
                 <td class="text-center">
-                    <select name="status" id="status">
-                        <option value="{{ $o->status }}">Tercatat</option>
-                        <option value="{{ $o->status }}">Penjemputan</option>
-                        <option value="{{ $o->status }}">Selesai</option>
+                    <select name="status" class="status form-control changeStatus">
+                        <option value="Tercatat" {{ $o->status == 'Tercatat' ? 'selected' : '' }}>Tercatat
+                        </option>
+                        <option value="Penjemputan" {{ $o->status == 'Penjemputan' ? 'selected' : '' }}>
+                            Penjemputan</option>
+                        <option value="Selesai" {{ $o->status == 'Selesai' ? 'selected' : '' }}>Selesai
+                        </option>
                     </select>
                 </td>
                 <td class="text-center">

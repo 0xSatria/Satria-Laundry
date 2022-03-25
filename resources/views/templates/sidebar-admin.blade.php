@@ -60,22 +60,35 @@ with font-awesome or any other icon font library -->
                     Simulasi Gaji Karyawan
                 </p>
             </a>
-
+        </li>
+        <li class="nav-item">
+            <a href="{{ 'databarang' }}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Data Barang
+                </p>
+            </a>
         </li>
 
 
 
         <li class="nav-header">USER</li>
         <li class="nav-item">
-            <a href="{{ 'login' }}" class="nav-link">
+            <a href="{{ 'user' }}" class="nav-link">
                 <i class="nav-icon fas fa-ellipsis-h"></i>
-                <p>Login</p>
+                <p>User</p>
             </a>
         </li>
         <li class="nav-item">
             <a href="{{ 'data_karyawan' }}" class="nav-link">
                 <i class="far fa-address-book nav-icon"></i>
                 <p>Simulasi Data Karyawan</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ 'simulasibarang' }}" class="nav-link">
+                <i class="far fa-address-book nav-icon"></i>
+                <p>Simulasi Transaksi Barang</p>
             </a>
         </li>
 

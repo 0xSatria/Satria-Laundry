@@ -1,11 +1,13 @@
+<title>Yakuza 3 | Home</title>
 @extends('templates.header')
 
 @section('content')
     <!-- Main content -->
+
     <section class="content">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Title</h3>
+                <h3 class="card-title">Home</h3>
             </div>
             <div class="card-body">
                 <h2>Selamat Datang {{ Auth::user()->nama }}</h2>
@@ -17,3 +19,13 @@
     </section>
     </div>
 @endsection
+
+{{-- function istriAnime() {
+if (shun) {
+peluk()
+} else if (bochi) {
+pukul()
+} else {
+segs
+}
+} --}}

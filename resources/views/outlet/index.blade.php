@@ -1,3 +1,4 @@
+<title>Yakuza 3 | Outlet</title>
 @extends('templates/header')
 
 @section('content')

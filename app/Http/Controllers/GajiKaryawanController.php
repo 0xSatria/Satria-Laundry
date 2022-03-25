@@ -15,7 +15,8 @@ class GajiKaryawanController extends Controller
      */
     public function index()
     {
-        return view('gaji/index');
+        return view('simulasibarang/index');
+        // return view('gaji/index');
     }
 
     /**

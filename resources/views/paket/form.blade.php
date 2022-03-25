@@ -18,7 +18,7 @@
                                 <div class="form-group">
                                     <label for="id_outlet">Id Outlet</label>
                                     <input type="text" class="form-control " id="id_outlet" placeholder="Id Outlet"
-                                        name="id_outlet">
+                                        name="id_outlet" value="{{ auth()->user()->id_outlet }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis">Jenis</label>

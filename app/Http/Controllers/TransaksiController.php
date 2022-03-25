@@ -7,7 +7,7 @@ use App\Models\Member;
 use App\Models\Paket;
 use App\Http\Requests\StoretransaksiRequest;
 use App\Http\Requests\UpdatetransaksiRequest;
-use App\Models\Detail_transaksi;
+use App\Models\detail_transaksi;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\MemberController;
@@ -21,7 +21,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $data['detail_tr'] = Detail_Transaksi::all();
+        $data['detail_tr'] = detail_Transaksi::all();
         $data['transaksi'] = Transaksi::all();
         $data['member'] = Member::get();
         $data['paket'] = Paket::Where('id_outlet', auth()->user()->id_outlet)->get();
@@ -55,6 +55,7 @@ class TransaksiController extends Controller
         $request['dibayar'] = ($request->bayar == 0 ? 'belum_dibayar' : 'dibayar');
         $request['id_user'] = auth()->user()->id;
 
+        // dd($request);
         //input transaksi
         $input_transaksi = Transaksi::create($request->all());
         if ($input_transaksi == null) {
@@ -65,7 +66,7 @@ class TransaksiController extends Controller
 
         //input detail pembelian
         foreach ($request->id_paket as $i => $v) {
-            $input_detail = Detail_transaksi::create([
+            $input_detail = detail_transaksi::create([
                 'id_transaksi' => $input_transaksi->id,
                 'id_paket' => $request->id_paket[$i],
                 'qty' => $request->qty[$i],

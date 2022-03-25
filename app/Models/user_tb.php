@@ -11,5 +11,11 @@ class user_tb extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     protected $table = 'users';
-    protected $fillable = ['nama', 'username', 'password', 'id_outlet', 'role'];
+    protected $fillable = ['name', 'email', 'username', 'password', 'id_outlet', 'role'];
+
+
+    public function outlet()
+    {
+        return $this->belongsTo(outlet::class, "id_outlet");
+    }
 }

@@ -12,7 +12,7 @@ class UsersSeeder extends Seeder
     {
         $users = [
             [
-                'nama' => 'Admin',
+                'name' => 'Admin',
                 'username' => 'admin1',
                 'email' => 'admin@gmail.com',
                 'email_verified_at' => now(),

@@ -9,6 +9,7 @@ use App\Models\Penjemputan;
 use App\Http\Requests\StorePenjemputanRequest;
 use App\Http\Requests\UpdatePenjemputanRequest;
 use App\Models\Detail_transaksi;
+use Illuminate\Http\Request;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\MemberController;
@@ -28,6 +29,15 @@ class PenjemputanController extends Controller
         return view('penjemputan.index', [
             'title' => 'penjemputan'
         ])->with($data);
+    }
+
+    public function status(Request $request)
+    {
+        $data = Penjemputan::where('id', $request->id)->first();
+        $data->status = $request->status;
+        $update = $data->save();
+
+        return 'Data Gagal Ditarik';
     }
 
     /**

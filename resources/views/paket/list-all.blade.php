@@ -13,7 +13,7 @@
         @foreach ($paket as $p)
             <tr>
                 <td class="text-center">{{ $i = isset($i) ? ++$i : ($i = 1) }}</td>
-                <td class="text-center">{{ $p->id_outlet }}</td>
+                <td class="text-center">{{ $p->outlet->nama }}</td>
                 <td class="text-center">{{ $p->jenis }}</td>
                 <td class="text-center">{{ $p->nama_paket }}</td>
                 <td class="text-center">{{ $p->harga }}</td>

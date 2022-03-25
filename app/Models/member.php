@@ -22,4 +22,9 @@ class member extends Model
     {
         return $this->hasMany(Penjemputan::class, 'id_penjemputan');
     }
+
+    public function member()
+    {
+        return $this->hasMany(Penjemputan::class);
+    }
 }

@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <label for="id_outlet"></label>
                             <input type="text" class="form-control col-sm-9" id="id_outlet"
-                                value="{{ $p->id_outlet }}" name="id_outlet">
+                                value="{{ $p->id_outlet }}" name="id_outlet" readonly>
                         </div>
                     </div>
 

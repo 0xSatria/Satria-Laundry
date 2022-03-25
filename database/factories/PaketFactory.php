@@ -14,7 +14,10 @@ class PaketFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_outlet' => $this->faker->numberBetween(1, 1),
+            'jenis' => $this->faker->randomElement(['kiloan', 'selimut', 'bed_cover', 'kaos', 'lain']),
+            'nama_paket' => $this->faker->sentence(2),
+            'harga' => $this->faker->numberBetween(10000, 250000)
         ];
     }
 }

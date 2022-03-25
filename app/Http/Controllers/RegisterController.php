@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\outlet;
 use App\Models\User;
+use App\Models\user_tb;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -19,7 +20,7 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $data = $request->validate([
-            'nama' => 'required',
+            'name' => 'required',
             'username' => 'required',
             'email' => 'required|email',
             'id_outlet' => 'required',
@@ -27,10 +28,10 @@ class RegisterController extends Controller
             'password' => 'required|min:5|max:30',
         ]);
 
-        $register = User::create($data);
+        $register = user_tb::create($data);
 
         if ($register) {
-            return redirect()->route('login')->with('success', 'Register berhasil ya adik adik, silakan login');
+            return redirect()->route('user.index')->with('success', 'Register berhasil ya adik adik, silakan login');
         } else {
             return redirect()->back()->with('error', 'Register berhasil ya adik adik, silakan login');
         }

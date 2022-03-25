@@ -1,3 +1,4 @@
+<title>Yakuza 3 | Paket</title>
 @extends('templates/header')
 
 @section('content')
