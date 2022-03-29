@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="waktu_beli"></label>
-                            <input type="date" class="form-control col-sm-9" id="waktu_beli"
+                            <input type="datetime-local" class="form-control col-sm-9" id="waktu_beli"
                                 value="{{ $o->waktu_beli }}" name="waktu_beli">
                         </div>
                     </div>

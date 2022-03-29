@@ -30,30 +30,37 @@ with font-awesome or any other icon font library -->
                         <p>Member</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ 'inventory' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Inventory</p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a href="{{ 'penjemputan' }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Penjemputan Laundry</p>
                     </a>
+                </li> --}}
+
+                <li class="nav-item">
+                    <a href="{{ 'transaksi' }}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Transaksi</p>
+                    </a>
                 </li>
             </ul>
         </li>
-        <li class="nav-item">
+
+        {{-- <li class="nav-item">
             <a href="{{ 'transaksi' }}" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                     Transaksi
                 </p>
             </a>
-        </li>
-
-        <li class="nav-item">
+        </li> --}}
+        {{-- <li class="nav-item">
             <a href="{{ 'gaji' }}" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
@@ -61,14 +68,35 @@ with font-awesome or any other icon font library -->
                 </p>
             </a>
         </li>
+
+
+
+        {{-- <li class="nav-item">
+            <a href="{{ 'simulasitransaksi' }}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Simulasi Transaksi
+                </p>
+            </a>
+        </li> --}}
+
         <li class="nav-item">
+            <a href="{{ 'penggunaanbarang' }}" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Penggunaan Barang
+                </p>
+            </a>
+        </li>
+
+        {{-- <li class="nav-item">
             <a href="{{ 'databarang' }}" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                     Data Barang
                 </p>
             </a>
-        </li>
+        </li> --}}
 
 
 
@@ -76,21 +104,23 @@ with font-awesome or any other icon font library -->
         <li class="nav-item">
             <a href="{{ 'user' }}" class="nav-link">
                 <i class="nav-icon fas fa-ellipsis-h"></i>
-                <p>User</p>
+                <p>User Management</p>
             </a>
         </li>
-        <li class="nav-item">
+
+        {{-- <li class="nav-item">
             <a href="{{ 'data_karyawan' }}" class="nav-link">
                 <i class="far fa-address-book nav-icon"></i>
                 <p>Simulasi Data Karyawan</p>
             </a>
-        </li>
-        <li class="nav-item">
+        </li> --}}
+
+        {{-- <li class="nav-item">
             <a href="{{ 'simulasibarang' }}" class="nav-link">
                 <i class="far fa-address-book nav-icon"></i>
                 <p>Simulasi Transaksi Barang</p>
             </a>
-        </li>
+        </li> --}}
 
     </ul>
 </nav>

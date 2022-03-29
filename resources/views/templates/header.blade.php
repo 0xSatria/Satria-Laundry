@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/adminlte.min.css">
+    {{-- datatables css --}}
+    <link rel="stylesheet" href="{{ asset('assets') }}/dist/js/DataTables-1.11.5/css/dataTables.bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -42,9 +44,9 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                    {{-- <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
-                    </a>
+                    </a> --}}
                     <div class="navbar-search-block">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
@@ -71,7 +73,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{ asset('assets') }}/index3.html" class="brand-link">
+            <a href="home" class="brand-link">
                 <img src="{{ asset('assets') }}/dist/img/b.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">YAKUZA 3</span>
@@ -86,7 +88,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Arya Satria</a>
+                        <a href="home" class="d-block">Arya Satria</a>
                     </div>
                 </div>
 

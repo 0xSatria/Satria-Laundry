@@ -63,7 +63,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <select class=" form-control" name="role" id="">
-                            <option disabled selected>---------- PILIH ID OUTLET ----------</option>
+                            <option disabled selected>PILIH ROLE</option>
                             @foreach ($roles as $role)
                                 <option value="{{ $role }}">{{ $role }}</option>
                             @endforeach

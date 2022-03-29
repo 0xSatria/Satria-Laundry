@@ -25,7 +25,7 @@
                         </div>
                         <div>
                             <label for="waktu_beli">Waktu Beli</label>
-                            <input type="date" class="form-control " id="waktu_beli" placeholder="Waktu Beli"
+                            <input type="datetime-local" class="form-control " id="waktu_beli" placeholder="Waktu Beli"
                                 name="waktu_beli">
                         </div>
                         <div>
@@ -47,9 +47,40 @@
                 <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
-</div>
 
+{{-- Modal Pilih File Untuk Import Xls --}}
+<div class="modal fade" id="FormImport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"> Pilih File Excel </h5>
+                {{-- <span aria-hidden="true">&times;</span> --}}
+            </div>
+            {{-- Form mesti dibawah modal body agar JSnya bekerja --}}
+            <div class="modal-body">
+                <form method="POST" action="{{ route('import-barang') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <input type="file" name="file" required="required">
+
+                    </div>
+                    <div>
+                        <a href="{{ route('databarang.templateExcel.download') }}" class="btn btn-danger">Download
+                            Template Import</a>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Import</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
 {{-- End Modal Member --}}

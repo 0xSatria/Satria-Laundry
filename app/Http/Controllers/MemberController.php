@@ -91,7 +91,7 @@ class MemberController extends Controller
 
         $update = Member::find($id)->update($request->all());
 
-        if ($update) return redirect('member')->with('success', 'Data Berhasil diupdate');
+        if ($update) return redirect(request()->segment(1) . '/member')->with('success', 'Data Berhasil diupdate');
     }
 
 
@@ -104,6 +104,6 @@ class MemberController extends Controller
     public function destroy($id)
     {
         member::find($id)->delete();
-        return redirect('member')->with('success', 'Outlet dihapus');
+        return redirect(request()->segment(1) . '/member')->with('success', 'Member dihapus');
     }
 }

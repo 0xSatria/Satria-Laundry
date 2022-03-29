@@ -18,9 +18,11 @@ class CreateDataBarangTable extends Migration
             $table->string("nama_barang");
             $table->integer("qty");
             $table->integer("harga");
-            $table->date("waktu_beli");
+            $table->datetime("waktu_beli");
             $table->string("supplier");
             $table->enum('status', ["diajukan_beli", "habis", "tersedia"]);
+
+            $table->date('waktu_update_status')->nullable();
             $table->timestamps();
         });
     }

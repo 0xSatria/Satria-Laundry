@@ -95,7 +95,7 @@ class PaketController extends Controller
 
         $update = Paket::find($id)->update($request->all());
 
-        if ($update) return redirect('paket')->with('success', 'Data Berhasil diupdate');
+        if ($update) return redirect(request()->segment(1) . '/paket')->with('success', 'Data Berhasil diupdate');
     }
     /**
      * Remove the specified resource from storage.
@@ -106,7 +106,7 @@ class PaketController extends Controller
     public function destroy($id)
     {
         paket::find($id)->delete();
-        return redirect('paket')->with('success', 'Paket dihapus');
+        return redirect(request()->segment(1) . '/paket')->with('success', 'Paket dihapus');
     }
 
     // Export Function to Xls/Excel

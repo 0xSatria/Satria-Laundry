@@ -24,7 +24,7 @@
                 <td class="text-center">{{ $o->waktu_beli }}</td>
                 <td class="text-center">{{ $o->supplier }}</td>
                 <td class="text-center">
-                    <select name="status" class="changeStatus form-control">
+                    <select name="status" class="status form-control">
                         <option value="diajukan_beli" {{ $o->status == 'diajukan_beli' ? 'selected' : '' }}>Diajukan
                             Beli
                         </option>
@@ -34,7 +34,7 @@
                         </option>
                     </select>
                 </td>
-                <td></td>
+                <td>{{ $o->waktu_update_status }}</td>
                 <td class="text-center">
                     @include('databarang.update')
                     <form method="POST" action="{{ route('databarang.destroy', $o->id) }}" style="display:inline">

@@ -48,7 +48,7 @@ class OutletController extends Controller
 
         $input = outlet::create($validated);
 
-        if ($input) return redirect('outlet')->with('success', 'Data Berhasil Ditambahkan!');
+        if ($input) return redirect(request()->segment(1) . '/outlet')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     /**
@@ -90,7 +90,7 @@ class OutletController extends Controller
 
         $update = Outlet::find($id)->update($request->all());
 
-        if ($update) return redirect('outlet')->with('success', 'Data Berhasil diupdate');
+        if ($update) return redirect(request()->segment(1) . '/outlet')->with('success', 'Data Berhasil diupdate');
     }
 
 
@@ -103,6 +103,6 @@ class OutletController extends Controller
     public function destroy($id)
     {
         outlet::find($id)->delete();
-        return redirect('outlet')->with('success', 'Outlet dihapus');
+        return redirect(request()->segment(1) . '/outlet')->with('success', 'Outlet dihapus');
     }
 }

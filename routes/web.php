@@ -14,8 +14,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\PenjemputanController;
+use App\Http\Controllers\SimulasiTransaksiController;
 use App\Http\Controllers\UserTbController;
+use App\Http\Controllers\PenggunaanBarangController;
 use App\Models\GajiKaryawan;
+use App\Models\PenggunaanBarang;
 use App\Models\SimulasiBarangController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +56,8 @@ Route::get('home', [HomeController::class, 'index']);
 Route::get('/', [LoginControler::class, 'index'])->name('login');
 Route::post('/login', [LoginControler::class, 'authenticate'])->name('auth.login');
 Route::post('/logout', [LoginControler::class, 'logout']);
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
 
 
 Route::group(['prefix' => 'a', 'middleware' => ['isAdmin', 'auth']], function () {
@@ -63,10 +68,17 @@ Route::group(['prefix' => 'a', 'middleware' => ['isAdmin', 'auth']], function ()
     Route::resource('penjemputan', PenjemputanController::class);
     Route::resource('user', UserTbController::class);
     Route::resource('databarang', DataBarangController::class);
+    Route::resource('penggunaanbarang', PenggunaanBarangController::class);
     Route::get('export/paket', [PaketController::class, 'exportData'])->name('export-paket');
     Route::get('export/databarang', [DataBarangController::class, 'exportData'])->name('export-barang');
+    Route::get('export/penggunaanbarang', [PenggunaanBarangController::class, 'exportData'])->name('export-penggunaanbarang');
+    Route::get('databarangs/exportPDF/', [DataBarangController::class, 'exportPDF'])->name('exportPDF-databarang');
+    Route::get('penggunaanbarangs/exportPDF/', [PenggunaanBarangController::class, 'exportPDF'])->name('exportPDF-penggunaanbarang');
+    Route::post('databarang/import', [DataBarangController::class, 'importData'])->name('import-barang');
+    Route::post('penggunaanbarang/import', [PenggunaanBarangController::class, 'importData'])->name('import-penggunaanbarang');
     Route::post('paket/import', [PaketController::class, 'importData'])->name('import-paket');
     Route::get('simulasibarang', [GajiKaryawanController::class, 'index']);
+    Route::get('simulasitransaksi', [SimulasiTransaksiController::class, 'index']);
     Route::resource('inventory', InventoryController::class);
     Route::resource('transaksi', TransaksiController::class);
     Route::get('gaji', [GajiKaryawanController::class, 'index']);
@@ -75,13 +87,16 @@ Route::group(['prefix' => 'a', 'middleware' => ['isAdmin', 'auth']], function ()
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
     Route::post('/status', [PenjemputanController::class, 'status'])->name('status');
+    Route::post('/status', [DataBarangController::class, 'status'])->name('status');
+    Route::post('/status', [PenggunaanBarangController::class, 'status'])->name('status');
+    Route::get('/download/templateExcel/databarang', [DataBarangController::class, 'downloadTemplate'])->name('databarang.templateExcel.download');
 });
 
 
 Route::group(['prefix' => 'k', 'middleware' => ['isKasir', 'auth']], function () {
     Route::get('home', [HomeController::class, 'index'])->name('k.home');
-    Route::resource('member', MemberController::class);
-    Route::resource('paket', PaketController::class);
+    // Route::resource('member', MemberController::class);
+    // Route::resource('paket', PaketController::class);
     Route::resource('transaksi', TransaksiController::class);
     Route::get('laporan', [LaporanController::class, 'index']);
 });

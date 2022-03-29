@@ -14,7 +14,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ url('paket/' . $p->id) }}">
+                <form method="POST" action="/{{ request()->segment(1) }}/paket/{{ $p->id }}">
                     @csrf
                     @method('PUT')
                     <div id="method"></div>

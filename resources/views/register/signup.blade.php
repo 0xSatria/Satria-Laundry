@@ -20,12 +20,12 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ asset('assets') }}/index2.html"><b>Admin</b>LTE</a>
+            <a href="{{ asset('assets') }}/index2.html"><b>Register</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Sign up to start your session</p>
 
                 <form action="{{ route('register.store') }}" method="post">
                     @csrf
@@ -55,7 +55,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <select class=" form-control" name="id_outlet" id="">
-                            <option disabled selected>---------- PILIH ID OUTLET ----------</option>
+                            <option disabled selected>PILIH ID OUTLET</option>
                             @foreach ($id_outlet as $onjo)
                                 <option value="{{ $onjo->id }}">{{ $onjo->nama }}</option>
                             @endforeach
@@ -63,7 +63,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <select class=" form-control" name="role" id="">
-                            <option disabled selected>---------- PILIH ID OUTLET ----------</option>
+                            <option disabled selected>PILIH ROLE</option>
                             @foreach ($roles as $role)
                                 <option value="{{ $role }}">{{ $role }}</option>
                             @endforeach
@@ -85,7 +85,7 @@
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
                         </div>
                         <!-- /.col -->
                     </div>
